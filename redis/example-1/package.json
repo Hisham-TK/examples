@@ -1,0 +1,23 @@
+{
+  "name": "example-1",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "nodemon",
+    "watch": "rimraf dist/ && tsc -w",
+    "build": "tsc",
+    "start": "node ."
+  },
+  "author": "Hisham Taha Kamal-Al-Din <hisham.taha.work@gmail.com> (https://github.com/Hisham-TK)",
+  "license": "MIT",
+  "dependencies": {
+    "redis": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/redis": "^2.8.20",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.8.3"
+  }
+}

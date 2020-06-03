@@ -1,0 +1,6 @@
+{
+	"watch": ["webpack.*.js", "ts*.json"],
+	"ext": "js,json",
+	"exec": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./webpack.dev.js",
+	"ignore": []
+}

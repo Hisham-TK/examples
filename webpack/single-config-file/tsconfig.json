@@ -1,0 +1,18 @@
+{
+	"compilerOptions": {
+		"module": "CommonJS", // CommonJS, ES2015
+		"declaration": true,
+		"removeComments": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"target": "ES5",
+		"sourceMap": true,
+		"outDir": "./dist",
+		"baseUrl": "./",
+		"incremental": true,
+
+		"noImplicitAny": true,
+		"allowJs": true
+	},
+	"exclude": ["node_modules", "dist", "public"]
+}

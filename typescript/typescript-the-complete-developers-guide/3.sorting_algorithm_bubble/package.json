@@ -1,0 +1,17 @@
+{
+  "name": "linked_list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist\\index.js",
+  "scripts": {
+    "start:dev": "rimraf dist && tsc -w",
+    "start": "node ."
+  },
+  "keywords": [],
+  "author": "Hisham Taha Kamal-Al-Din",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.0.2",
+    "nodemon": "^2.0.2"
+  }
+}

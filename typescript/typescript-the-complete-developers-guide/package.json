@@ -1,0 +1,13 @@
+{
+  "name": "ts",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "format": "prettier --write \"*/src/**/*.ts\" \"*/test/**/*.ts\""
+  },
+  "author": "Hisham Taha Kamal-Al-Din",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "linked_list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist\\index.js",
+  "scripts": {
+    "start:dev": "rimraf dist && tsc -w",
+    "start:run": "nodemon dist/index.js",
+    "dev": "concurrently npm:start:*",
+    "start": "node ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.0.2",
+    "nodemon": "^2.0.2"
+  }
+}

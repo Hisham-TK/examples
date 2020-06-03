@@ -1,0 +1,15 @@
+{
+  "name": "geo-location-mongoose",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./src/main.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "Hisham Taha Kamal-Al-Din <hisham.taha.work@gmail.com> (https://github.com/Hisham-TK)",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^5.9.14"
+  },
+  "devDependencies": {}
+}

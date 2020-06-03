@@ -1,0 +1,22 @@
+{
+  "name": "4.2.csv",
+  "version": "1.0.0",
+  "description": "Project for parsing CSV files",
+  "main": "dist/index.js",
+  "scripts": {
+    "start:dev": "rm -rf ./dist && tsc -w",
+    "start:build": "nodemon .",
+    "start": "npm i && concurrently npm:start:*"
+  },
+  "keywords": [],
+  "author": "Hisham Taha Kamal-Al-Din",
+  "license": "ISC",
+  "dependencies": {
+    "csv-parse": "^4.8.5"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.0",
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.2"
+  }
+}

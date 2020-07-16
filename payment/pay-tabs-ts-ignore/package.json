@@ -1,0 +1,23 @@
+{
+  "name": "pay-tabs-ts-ignore",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "cross-env NODE_ENV=development nodemon --watch \"src\" --watch \"config\" --ext \"ts\" --ignore [\"src/**/*.spec.ts\"] --exec \"node ./node_modules/ts-node/dist/bin.js ./src/main.ts\""
+  },
+  "keywords": [],
+  "author": "Hisham Taha Kamal-Al-Din <hisham.taha.work@gmail.com> (https://github.com/Hisham-TK)",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^14.0.6",
+    "cross-env": "^7.0.2",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.3"
+  },
+  "dependencies": {
+    "@types/config": "0.0.36",
+    "config": "^3.3.1",
+    "unirest": "^0.6.0"
+  }
+}

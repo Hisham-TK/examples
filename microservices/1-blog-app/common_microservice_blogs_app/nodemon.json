@@ -1,0 +1,6 @@
+{
+  "watch": ["src", "config"],
+  "ext": "ts",
+  "ignore": ["src/**/*.spec.ts"],
+  "exec": "rimraf dist/ && npm run start:dev"
+}

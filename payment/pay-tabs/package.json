@@ -1,0 +1,33 @@
+{
+  "name": "pay-tabs",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./dist/src/main.js",
+  "scripts": {
+    "start": "node .",
+    "start:ts-dev": "cross-env NODE_ENV=development nodemon --watch \"src\" --watch \"config\" --ext \"ts\" --ignore [\"src/**/*.spec.ts\"] --exec \"node ./node_modules/ts-node/dist/bin.js ./src/main.ts\"",
+    "start:dev": "nodemon --watch [\"!\"] --ext \"!\" --exec \"rimraf ./dist/ && tsc -w\"",
+    "start:watch": "nodemon --watch [\"dist\"] --ext \"js\" --exec \"node ./dist/src/main.js\""
+  },
+  "keywords": [],
+  "author": "Hisham Taha Kamal-Al-Din <hisham.taha.work@gmail.com> (https://github.com/Hisham-TK)",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/config": "0.0.36",
+    "@types/follow-redirects": "^1.8.0",
+    "@types/node": "^14.0.4",
+    "@types/request": "^2.48.5",
+    "@types/request-promise": "^4.1.46",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.9.3",
+    "unirest": "^0.6.0"
+  },
+  "dependencies": {
+    "config": "^3.3.1",
+    "follow-redirects": "^1.11.0",
+    "paytabs_api": "^1.0.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
+  }
+}

@@ -1,0 +1,27 @@
+version: "3"
+services:
+  posts-service:
+    restart: always
+    build: 1-posts-service
+    ports:
+      - 3331:3331
+  comments-service:
+    restart: always
+    build: 2-comments-service
+    ports:
+      - 3332:3332
+  queries-service:
+    restart: always
+    build: 3-queries-service
+    ports:
+      - 3333:3333
+  moderation-service:
+    restart: always
+    build: 4-moderation-service
+    ports:
+      - 3334:3334
+  events-bus-service:
+    restart: always
+    build: 5-events-bus-service
+    ports:
+      - 3335:3335

@@ -1,6 +1,0 @@
-{
-  "watch": ["src"],
-  "ext": "tsx",
-  "ignore": ["src/**/*.spec.ts"],
-  "exec": "rimraf ./dist/ && npm run start:dev"
-}

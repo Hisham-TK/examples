@@ -1,10 +1,8 @@
 use shardingDb;
 db.createCollection("rangeBaseCollection");
+db.createCollection("hashedCollection");
 
-sh.enableSharding("shardingDb");
-sh.shardCollection("shardingDb.rangeBaseCollection", { _id: 1, Name: 1 });
-
-db.rangeBaseCollection.insertMany([
+const carsData = [
   {
     Name: "chevrolet chevelle malibu",
     Miles_per_Gallon: 18,
@@ -4471,4 +4469,12 @@ db.rangeBaseCollection.insertMany([
     Year: "1982-01-01",
     Origin: "USA",
   },
-]);
+];
+
+sh.enableSharding("shardingDb");
+
+sh.shardCollection("shardingDb.rangeBaseCollection", { Year: 1, Name: 1 });
+sh.shardCollection("shardingDb.hashedCollection", { Name: "hashed" });
+
+db.hashedCollection.insertMany(carsData);
+db.rangeBaseCollection.insertMany(carsData);

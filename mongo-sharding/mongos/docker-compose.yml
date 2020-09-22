@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  mongos:
+    image: mongo
+    container_name: mongos
+    command: mongos --port 27017 --configdb ${CONFIG_RS_NAME}/${CURRENT_IP_ADDRESS}:${CONFIG_RS_CONTAINER_1_PORT},${CURRENT_IP_ADDRESS}:${CONFIG_RS_CONTAINER_2_PORT},${CURRENT_IP_ADDRESS}:${CONFIG_RS_CONTAINER_3_PORT} --bind_ip_all
+    ports:
+      - ${MONGOS_CONTAINER_PORT}:27017
+    volumes:
+      - mongos:/db/data
+
+volumes:
+  mongos:

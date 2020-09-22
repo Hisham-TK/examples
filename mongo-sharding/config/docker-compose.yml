@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  configsvr1:
+    image: mongo
+    container_name: configsvr1
+    command: mongod --configsvr --replSet ${CONFIG_RS_NAME} --dbpath /data/db --port 27017
+    ports:
+      - ${CONFIG_RS_CONTAINER_1_PORT}:27017
+    volumes:
+      - configsvr1:/data/db
+
+  configsvr2:
+    image: mongo
+    container_name: configsvr2
+    command: mongod --configsvr --replSet ${CONFIG_RS_NAME} --dbpath /data/db --port 27017
+    ports:
+      - ${CONFIG_RS_CONTAINER_2_PORT}:27017
+    volumes:
+      - configsvr2:/data/db
+
+  configsvr3:
+    image: mongo
+    container_name: configsvr3
+    command: mongod --configsvr --replSet ${CONFIG_RS_NAME} --dbpath /data/db --port 27017
+    ports:
+      - ${CONFIG_RS_CONTAINER_3_PORT}:27017
+    volumes:
+      - configsvr3:/data/db
+
+volumes:
+  configsvr1:
+  configsvr2:
+  configsvr3:

@@ -25,7 +25,7 @@ echo Removing all previous container and volumes related to \"svr\"
 docker ps | grep "svr" | awk '{print $1}' | xargs docker stop -t 1 | echo All \"svr\" containers are stoped!
 docker ps -a | grep 'svr' | awk '{print $1}' | xargs docker rm -f -v | echo All \"svr\" containers are removed!
 docker volume ls | grep 'svr' | awk '{print $2}' | xargs docker volume rm -f | echo All \"svr\" volumes are removed!
-docker stop mongos -t 1 | docker rm mongos -f | docker volume rm mongos_mongos
+docker stop mongos -t 1 | docker rm mongos -f | docker volume rm mongos_mongos | ech \"Mongos\" container and volume are removed!
 
 echo Mongo config and shards servers instantcs are init
 docker-compose -f ./config/docker-compose.yml up --build -d

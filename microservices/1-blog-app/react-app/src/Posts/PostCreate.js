@@ -13,7 +13,7 @@ export default function PostCreate() {
     return (
         <form onSubmit={onSubmit}>
             <div className="form-group" onSubmit={onSubmit}>
-                <label htmlFor="post_title">Post title</label>
+                <label htmlFor="post_title" className="mr-2">Post title</label>
                 <input
                     id="post_title"
                     value={title}

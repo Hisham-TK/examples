@@ -15,7 +15,7 @@ export default class CommentCreate extends Component {
 
     async onSubmit(event) {
         event.preventDefault();
-        const comment = await Axios.post(`http://localhost:3332/posts/${this.props.postId}/comments`, {
+        await Axios.post(`http://localhost:3332/posts/${this.props.postId}/comments`, {
             content: this.state.content,
         });
 
@@ -26,9 +26,9 @@ export default class CommentCreate extends Component {
         return (
             <form onSubmit={this.onSubmit}>
                 <div className="form-group">
-                    <label /* htmlFor="createComment" */>Add new comment: </label>
+                    <label htmlFor={'createComment' + this.props.postId}>Add new comment: </label>
                     <input
-                        // id="createComment"
+                        id={'createComment' + this.props.postId}
                         className="form-control"
                         value={this.state.content}
                         onChange={(event) => {

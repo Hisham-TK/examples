@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import Axios from 'axios';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 export default class CommentList extends Component {
     constructor(props) {
@@ -17,29 +17,29 @@ export default class CommentList extends Component {
     }
 
     async componentDidMount() {
-        setTimeout(() => {
-            this.setState({
-                comments: this.props.comments.map((comment) => (
-                    <div className="card" key={comment.id}>
-                        <div className="comment-widgets">
-                            <div className="d-flex flex-row comment-row m-t-0">
-                                <div className="comment-text w-100">
-                                    <span className="m-b-15 d-block">
+        // setTimeout(() => {
+        this.setState({
+            comments: this.props.comments.map((comment) => (
+                <div className="card" key={comment.id}>
+                    <div className="comment-widgets">
+                        <div className="d-flex flex-row comment-row m-t-0">
+                            <div className="comment-text w-100">
+                                <span className="m-b-15 d-block">
+                                    {
                                         {
-                                            {
-                                                postponed: 'Comment wait for moderation',
-                                                approved: comment.content,
-                                                rejected: 'This comment is rejected',
-                                            }[comment.status]
-                                        }
-                                    </span>
-                                </div>
+                                            postponed: 'Comment wait for moderation',
+                                            approved: comment.content,
+                                            rejected: 'This comment is rejected',
+                                        }[comment.status]
+                                    }
+                                </span>
                             </div>
                         </div>
                     </div>
-                )),
-            });
-        }, 500);
+                </div>
+            )),
+        });
+        // }, 500);
 
         // await this.fetchComments();
     }
@@ -72,7 +72,8 @@ export default class CommentList extends Component {
         );
     }
 }
-CommentList.propTypes = {
+
+// CommentList.propTypes = {
     // postId: PropTypes.string.isRequired,
-    comments: PropTypes.object.isRequired,
-};
+    // comments: PropTypes.object.isRequired,
+// };

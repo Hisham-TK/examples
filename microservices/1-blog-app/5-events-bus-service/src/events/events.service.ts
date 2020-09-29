@@ -7,10 +7,10 @@ export class EventsService {
   async sendToAll(data: Event): Promise<Event> {
     const event = data;
 
-    Axios.post('http://posts-service:3331/events', event);
-    Axios.post('http://comments-service:3332/events', event);
-    Axios.post('http://queries-service:3333/events', event);
-    Axios.post('http://moderation-service:3334/events', event);
+    Axios.post('http://posts-service-cluster-ip-srv:3331/events', event);
+    // Axios.post('http://comments-service:3332/events', event);
+    // Axios.post('http://queries-service:3333/events', event);
+    // Axios.post('http://moderation-service:3334/events', event);
 
     this.events.push(event);
 

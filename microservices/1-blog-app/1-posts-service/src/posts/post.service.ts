@@ -9,7 +9,7 @@ export class PostsService {
     const { title } = data;
     const id = randomBytes(4).toString('hex');
     posts[id] = { id, title };
-    await Axios.post('http://events-bus-service:3335/events', {
+    await Axios.post('http://events-bus-service-cluster-ip-srv:3335/events', {
       type: 'PostCreated',
       data: posts[id],
     });

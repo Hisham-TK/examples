@@ -1,0 +1,6 @@
+{
+  "watch": ["test"],
+  "ext": "spec.ts",
+  "ignore": [],
+  "exec": "npm t"
+}

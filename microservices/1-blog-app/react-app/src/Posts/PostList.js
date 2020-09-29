@@ -7,7 +7,6 @@ export default function PostCreate() {
     const [posts, setPosts] = useState({});
 
     const fetchPosts = async () => {
-        // const res = await Axios.get('http://localhost:3331/posts');
         const res = await Axios.get('http://localhost:3333/posts');
         setPosts(res.data);
     };
@@ -15,6 +14,7 @@ export default function PostCreate() {
     useEffect(() => {
         fetchPosts();
     }, []);
+    
     const renderedPosts = Object.values(posts).map((post) => (
         <div className="card" key={post.id} style={{ width: '30%', marginBottom: '20px' }}>
             <div className="card-body">

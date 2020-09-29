@@ -28,9 +28,9 @@ test('should be create user as response', async () => {
 
 describe('User describe to wrap multi test cases and can contains lifecycle methods like', () => {
   // Run this function on start on the execution
-  beforeAll(() => console.log('Database init'));
+  // beforeAll(() => console.log('Database init'));
   // Close this function on end on the execution
-  afterAll(() => console.log('Database close'));
+  // afterAll(() => console.log('Database close'));
 
   // // Run this function on start of every test case
   // beforeEach(() => console.log('Database init'));

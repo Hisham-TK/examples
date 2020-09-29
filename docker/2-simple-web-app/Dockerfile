@@ -5,9 +5,9 @@ FROM node:alpine
 WORKDIR /usr/app
 
 # Install some dependancy
-COPY ./package.json ./
+COPY package.json .
 RUN npm i
-COPY ./ ./
+COPY . .
 
 # Startup command
 CMD [ "npm", "start" ]

@@ -2,7 +2,7 @@ export interface LiteralObject {
   [key: string]: any;
 }
 
-export function resAssert({ res, assert }: { res: any; assert: { body: any; status?: number } }) {
+export function resAssert({ res, assert }: { res: unknown; assert: { body: unknown; status?: number } }): void {
   const flattenKeys = flattenObject(assert);
   if (res)
     for (const rawField in flattenKeys)
@@ -23,12 +23,12 @@ export function resAssert({ res, assert }: { res: any; assert: { body: any; stat
 }
 
 // Helpers
-const flattenObject = (obj: LiteralObject, prefix = '') =>
-  Object.keys(obj).reduce((acc: LiteralObject, k) => {
+function flattenObject(obj: LiteralObject, prefix = '') {
+  return Object.keys(obj).reduce((acc: LiteralObject, k) => {
     const pre = prefix.length ? prefix + '.' : '';
     if (typeof obj[k] === 'object') Object.assign(acc, flattenObject(obj[k], pre + k));
     else acc[pre + k] = obj[k];
     return acc;
   }, {});
-
+}
 const indexedPath = (key: string) => (key ? ('["' + key.split('.').join('"]["') + '"]').replace(/"(\d+)"/g, '$1') : '');

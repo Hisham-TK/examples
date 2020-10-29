@@ -1,0 +1,101 @@
+"""
+Graph QL Schema
+"""
+type Query {
+  greeting(name: String): String!
+  grads: [Int!]!
+  add(numbers: [Float!]): Float!
+
+  me: User!
+  users(id: ID, query: String): [User!]!
+
+  post: Post!
+  posts(id: ID, query: String): [Post!]!
+
+  comment: Comment!
+  comments(id: ID, query: String): [Comment!]
+}
+
+type Mutation {
+  createUser(data: CreateUserInput!): User!
+  deleteUser(id: ID!): User!
+  updateUser(id: ID!, data: UpdateUserInput!): User!
+
+  createPost(data: CreatePostInput!): Post!
+  deletePost(id: ID!): Post!
+  updatePost(id: ID!, data: UpdatePostInput!): Post!
+
+  createComment(data: CreateCommentInput!): Comment!
+  deleteComment(id: ID!): Comment!
+  updateComment(id: ID!, data: UpdateCommentInput!): Comment!
+}
+
+type Subscription {
+  comment(postId: ID!): CommentSubscribePayload!
+  post: PostSubscribePayload!
+}
+
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  age: Int
+  posts: [Post!]!
+  comments: [Comment!]!
+}
+input CreateUserInput {
+  name: String!
+  email: String!
+  age: Int
+}
+input UpdateUserInput {
+  name: String
+  email: String
+  age: Int
+}
+
+
+type Post {
+  id: ID!
+  title: String!
+  body: String!
+  published: Boolean!
+  author: User!
+  comments: [Comment!]!
+}
+input CreatePostInput {
+  title: String!
+  body: String!
+  author: ID!
+  published: Boolean!
+}
+input UpdatePostInput {
+  title: String
+  published: Boolean
+  body: String
+}
+type PostSubscribePayload {
+  mutation: String!
+  data: Post!
+}
+
+
+type Comment {
+  id: ID!
+  text: String!
+  author: User!
+  post: Post!
+}
+input CreateCommentInput {
+  text: String!
+  author: ID!
+  post: ID!
+}
+input UpdateCommentInput {
+  text: String
+}
+type CommentSubscribePayload {
+  mutation: String!
+  data:Comment!
+}

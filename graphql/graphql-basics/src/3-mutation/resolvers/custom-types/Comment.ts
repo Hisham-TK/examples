@@ -1,4 +1,4 @@
-import { GraphQLResolverMethods } from '../../types/resolversTypes';
+import { GraphQLResolverMethods } from '../../../types/resolversTypes';
 
 const commentResolvers: GraphQLResolverMethods = {
   post(parent, args, { db }, info) {

@@ -1,3 +1,9 @@
+enum MutationTypes {
+  CREATED
+  UPDATED
+  DELETED
+}
+
 """
 Graph QL Schema
 """
@@ -76,7 +82,7 @@ input UpdatePostInput {
   body: String
 }
 type PostSubscribePayload {
-  mutation: String!
+  mutation: MutationTypes!
   data: Post!
 }
 
@@ -96,6 +102,7 @@ input UpdateCommentInput {
   text: String
 }
 type CommentSubscribePayload {
-  mutation: String!
-  data:Comment!
+  mutation: MutationTypes!
+  data: Comment!
 }
+

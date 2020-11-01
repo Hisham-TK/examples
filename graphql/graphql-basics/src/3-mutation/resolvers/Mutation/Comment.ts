@@ -18,9 +18,13 @@ const mutationResolvers: MutationResolvers<Comment> = {
 
     const comment: Comment = { id: uuid(), ...data };
     db.comments.push(comment);
+    // pubsub.publish(
+    //   `comment/${data.post}`,
+    //   createSubscriptionMessage('comment', 'CREATED', comment),
+    // );
     pubsub.publish(
       `comment/${data.post}`,
-      createSubscriptionMessage('comment', 'CREATED', comment),
+      { comment: { mutation: 'CREATED', data: comment } },
     );
     return comment;
   },
@@ -54,7 +58,7 @@ const mutationResolvers: MutationResolvers<Comment> = {
       (_comment) => _comment.id === id,
     );
     if (commentIndex === -1) throw new Error('Comment not exists');
-    const deleteComment = db.comments.splice(commentIndex, 1)[0];
+    const [deleteComment] = db.comments.splice(commentIndex, 1);
 
     pubsub.publish(
       `comment/${deleteComment.post}`,

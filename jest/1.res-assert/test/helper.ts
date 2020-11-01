@@ -1,5 +1,5 @@
 export interface LiteralObject {
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export function resAssert({ res, assert }: { res: unknown; assert: { body: unknown; status?: number } }): void {
@@ -13,7 +13,7 @@ export function resAssert({ res, assert }: { res: unknown; assert: { body: unkno
         expect(eval('res' + indexedPath(parentFields))).toHaveProperty(field);
         const fieldValue = eval('res' + indexedPath(rawField.replace(/\.\d+$/, '')));
         const isArrayAssertions = Array.isArray(fieldValue) && /\.\d+$/.test(rawField);
-        if (['boolean', 'string', 'number'].indexOf(dataTypeOrValue) + 1)
+        if (typeof dataTypeOrValue === 'string' && ['boolean', 'string', 'number'].indexOf(dataTypeOrValue) + 1)
           expect(isArrayAssertions ? typeof fieldValue[0] : typeof fieldValue).toBe(dataTypeOrValue);
         else
           expect(fieldValue)[dataTypeOrValue instanceof RegExp ? 'toMatch' : 'toEqual'](

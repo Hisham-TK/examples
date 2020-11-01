@@ -28,4 +28,3 @@ export type Comment = {
   // post: Post | string;
 };
 
-export type MutationStatus = 'CREATED' | 'UPDATED' | 'DELETED' | null;

@@ -17,6 +17,7 @@ const mutationResolvers: MutationResolvers<Post> = {
       );
     return post;
   },
+
   update(parent, { data, id }, { db, pubsub }, info) {
     const postIndex = db.posts.findIndex((_post) => _post.id === id);
     if (postIndex === -1) throw new Error('Post not exists');
@@ -43,10 +44,11 @@ const mutationResolvers: MutationResolvers<Post> = {
 
     return updatedPost;
   },
+
   delete(parent, { id }, { db, pubsub }, info) {
     const postIndex = db.posts.findIndex((_post) => _post.id === id);
     if (postIndex === -1) throw new Error('Post not exists');
-    const deletedPost = db.posts.splice(postIndex, 1)[0];
+    const [deletedPost] = db.posts.splice(postIndex, 1);
     db.comments = db.comments.filter((_comment) => _comment.post !== id);
     pubsub.publish(
       'post',

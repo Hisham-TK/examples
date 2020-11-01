@@ -11,6 +11,7 @@ const mutationResolvers: MutationResolvers<User> = {
     db.users.push(user);
     return user;
   },
+
   update(parent, { data, id }, { db }, info) {
     const userIndex = db.users.findIndex((_user) => _user.id === id);
     if (userIndex === -1) throw new Error('User not exists');
@@ -24,10 +25,11 @@ const mutationResolvers: MutationResolvers<User> = {
     db.users[userIndex] = { ...db.users[userIndex], ...data };
     return db.users[userIndex];
   },
+
   delete(parent, { id }, { db }, info) {
     const userIndex = db.users.findIndex((_user) => _user.id === id);
     if (userIndex === -1) throw new Error('User not exists');
-    const deleteUsers = db.users.splice(userIndex, 1);
+    const [deleteUser] = db.users.splice(userIndex, 1);
     db.posts = db.posts.filter((_post) => {
       const match = _post.author === id;
       if (match)
@@ -37,7 +39,7 @@ const mutationResolvers: MutationResolvers<User> = {
       return !match;
     });
     db.comments = db.comments.filter((_comment) => _comment.author !== id);
-    return deleteUsers[0];
+    return deleteUser;
   },
 };
 

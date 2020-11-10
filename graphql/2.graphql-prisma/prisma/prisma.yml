@@ -1,0 +1,11 @@
+# Our end point to use
+endpoint: http://localhost:4466
+
+# Use prisma file as data model
+# datamodel: datamodel.prisma
+
+# Use graphql file as data model
+datamodel: datamodel.graphql
+
+# If connection to mongo-db as database
+databaseType: document

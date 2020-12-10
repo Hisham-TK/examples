@@ -14,7 +14,7 @@
     "request-promise": "^4.2.5"
   },
   "devDependencies": {
-    "@types/elasticsearch": "5.0.36",
+    "@types/elasticsearch": "5.0.37",
     "@types/request": "2.48.4",
     "@types/request-promise": "4.1.46",
     "rimraf": "3.0.2",

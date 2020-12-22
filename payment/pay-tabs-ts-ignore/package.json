@@ -10,7 +10,7 @@
   "author": "Hisham Taha Kamal-Al-Din <hisham.taha.work@gmail.com> (https://github.com/Hisham-TK)",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "14.14.11",
+    "@types/node": "14.14.14",
     "cross-env": "7.0.3",
     "ts-node": "8.10.2",
     "typescript": "3.9.7"

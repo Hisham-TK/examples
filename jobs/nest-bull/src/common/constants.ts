@@ -1,0 +1,1 @@
+export const ORDER_BID_REALTIME_JOB_QUEUE_NAME = 'order-bid-realtime-jobs-queue'

@@ -6,13 +6,16 @@ export type CategoryDocument = Category & Document;
 @Schema()
 export class Category {
   @Prop()
-  name: string;
+  id: string;
 
   @Prop()
-  age: number;
+  path: string;
 
-  @Prop()
-  breed: string;
+  // @Prop()
+  // age: number;
+
+  // @Prop()
+  // breed: string;
 }
 
 export const CategorySchema = SchemaFactory.createForClass(Category);

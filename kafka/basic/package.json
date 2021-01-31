@@ -1,0 +1,17 @@
+{
+  "name": "basic",
+  "version": "0.0.1",
+  "description": "",
+  "main": "consumer.js",
+  "scripts": {
+    "consumer": "nodemon --exec 'node consumer.js' --watch 'consumer.js'",
+    "producer": "nodemon --exec 'node producer.js' --watch 'producer.js'"
+  },
+  "keywords": [],
+  "author": "Hisham Taha Kamal-Al-Din <hisham.taha.work@gmail.com> (https://github.com/Hisham-TK)",
+  "license": "MIT",
+  "dependencies": {
+    "chance": "^1.1.7",
+    "kafkajs": "^1.15.0"
+  }
+}

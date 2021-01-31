@@ -1,0 +1,11 @@
+website/
+.idea
+coverage
+logs
+test
+examples
+kafka-setup
+.editorconfig
+.travis.yml
+.gitignore
+src

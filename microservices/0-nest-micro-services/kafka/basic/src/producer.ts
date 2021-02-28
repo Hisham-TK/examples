@@ -13,14 +13,13 @@ async function init() {
   await producer.connect();
 
   await setInterval(async () => {
-    let animalName = chance.animal()
-    console.log({animalName})
+    let animalName = chance.animal();
+    console.log({ animalName });
     await producer.send({
       topic: 'animals3',
       messages: [{ value: animalName }],
     });
-  }, 3000)
-  
+  }, 3000);
 
   // await producer.disconnect();
 }

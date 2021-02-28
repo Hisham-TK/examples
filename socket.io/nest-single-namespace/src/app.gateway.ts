@@ -14,6 +14,7 @@ import { Server, Socket } from 'socket.io';
   // serveClient: false,
   path: '/ws',
   namespace: '/app',
+  // namespace: '/profile',
 })
 export class AppGateway
   implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {

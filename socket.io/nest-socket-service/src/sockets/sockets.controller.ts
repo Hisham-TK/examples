@@ -14,25 +14,25 @@ export class SocketsController {
 
   @Post()
   @HttpCode(200)
-  publishEvent(@Body() dto: { key: string; message: string }) {
+  publishEvent(@Body() dto: { key: string }) {
     // switch (dto.key) {
     //   case 'createTicket':
-    //     this.socketGateway.ticketCreated();
+    //     this.socketGateway.createTicket();
     //     break;
     //   case 'updateTicket':
-    //     this.socketGateway.ticketUpdated(dto.message);
+    //     this.socketGateway.updateTicket(dto.message);
     //     break;
     //   case 'deleteTicket':
-    //     this.socketGateway.ticketDeleted(dto.message);
+    //     this.socketGateway.deleteTicket(dto.message);
     //     break;
     //   default:
     //     throw new NotFoundException('Cannot subscribe not exists yet key');
     //     break;
     // }
 
-    if (SKeys[dto.key])
-      this.socketGateway.sendMessageToAll(dto.key, dto.message);
-    else throw new NotFoundException('Cannot subscribe not exists yet key');
+    // if (SKeys[dto.key]) this.socketGateway.sendMessageToAll(dto.key, dto.message);
+    // else throw new NotFoundException('Cannot subscribe not exists yet key');
+
     return dto;
   }
 }

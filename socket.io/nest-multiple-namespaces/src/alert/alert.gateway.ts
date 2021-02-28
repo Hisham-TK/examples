@@ -3,11 +3,10 @@ import {
   OnGatewayConnection,
   OnGatewayDisconnect,
   OnGatewayInit,
-  SubscribeMessage,
   WebSocketGateway,
   WebSocketServer,
 } from '@nestjs/websockets';
-import { Socket, Client, Server } from 'socket.io';
+import { Client, Server } from 'socket.io';
 
 @WebSocketGateway({ namespace: '/alert' })
 export class AlertGateway

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Socket.io</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/vue-simple-notify/dist/vue-simple-notify.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- <script src="https://unpkg.com/vue/dist/vue.js"></script> -->
+    <script src="https://unpkg.com/vue-simple-notify/dist/vue-simple-notify.min.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <main id="v-app">
+      <section class="chat">
+        <h1>Web-Socket Tester</h1>
+        <form>
+          <input v-model="key" type="text" /> <br />
+          <input v-model="payload" type="text" />
+          <button type="submit" @click.prevent="sendMessage()">Send</button>
+        </form>
+      </section>
+      <section class="data">
+        <h3>Created Tickets</h3>
+        <ul>
+          <li v-for="ticket of createdTickets">{{ticket}}</li>
+        </ul>
+        <hr />
+        <h3>Updated Tickets</h3>
+        <ul>
+          <li v-for="ticket of updatedTickets">{{ticket}}</li>
+        </ul>
+        <hr />
+        <h3>Deleted Tickets</h3>
+        <ul>
+          <li v-for="ticket of deletedTickets">{{ticket}}</li>
+        </ul>
+      </section>
+    </main>
+    <script>
+      Vue.component('alerts-component', VueSimpleNotify.VueSimpleNotify);
+      const app = new Vue({
+        el: '#v-app',
+        data: {
+          key: '',
+          payload: '',
+          createdTickets: [],
+          updatedTickets: [],
+          deletedTickets: [],
+          socket: null,
+        },
+        methods: {
+          sendMessage() {
+            console.log(`sending message: ${key} ${payload}`);
+            // console.log({
+            //   key: this.key,
+            //   payload: this.payload,
+            // });
+            this.socket.emit(this.key, {
+              key: this.key,
+              payload: this.payload,
+            });
+          },
+        },
+        created() {
+          this.socket = io('http://localhost:3000');
+
+          this.socket.on('createTicket', (message) => {
+            console.log(`received message: ${message}`);
+            this.createdTickets.push(message);
+          });
+
+          this.socket.on('updateTicket', (message) => {
+            console.log(`received message: ${message}`);
+            this.updatedTickets.push(message);
+          });
+
+          this.socket.on('deleteTicket', (message) => {
+            console.log(`received message: ${message}`);
+            this.deletedTickets.push(message);
+          });
+        },
+      });
+    </script>
+  </body>
+</html>

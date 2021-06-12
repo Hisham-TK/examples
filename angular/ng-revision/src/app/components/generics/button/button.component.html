@@ -1,0 +1,21 @@
+<!-- <button
+  class="btn"
+  [ngStyle]="{ 'background-color': color }"
+  (click)="onClick()"
+>
+  {{ text }}
+</button> -->
+
+<!-- mat-button -->
+<!-- [ngStyle]="{ 'background-color': color }" -->
+
+<button
+  mat-raised-button
+  (click)="onClick()"
+  [ngStyle]="{
+    color: 'white',
+    'background-color': color !== '#f44336' ? 'green' : 'red'
+  }"
+>
+  {{ text }}
+</button>

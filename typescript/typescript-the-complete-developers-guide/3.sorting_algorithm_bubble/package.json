@@ -11,7 +11,7 @@
   "author": "Hisham Taha Kamal-Al-Din",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^5.0.2",
+    "concurrently": "^5.3.0",
     "nodemon": "^2.0.2"
   }
 }

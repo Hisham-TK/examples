@@ -19,6 +19,6 @@
     "@types/request-promise": "4.1.47",
     "rimraf": "3.0.2",
     "ts-node": "8.9.1",
-    "typescript": "3.8.3"
+    "typescript": "3.9.10"
   }
 }
